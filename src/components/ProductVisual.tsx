@@ -33,38 +33,9 @@ function Cartridges() {
   );
 }
 
-function Care() {
-  return (
-    <g>
-      <ellipse cx="100" cy="166" rx="60" ry="7" fill="#252525" opacity="0.08" />
-      <rect x="56" y="58" width="44" height="104" rx="14" fill="#FFFDFB" stroke="#E3D8CC" strokeWidth="2" />
-      <rect x="68" y="44" width="20" height="18" rx="5" fill="#A6B5A0" />
-      <rect x="64" y="96" width="28" height="34" rx="6" fill="#E1E7DE" />
-      <rect x="116" y="70" width="10" height="92" rx="5" fill="#C9949B" />
-      <rect x="112" y="46" width="18" height="30" rx="7" fill="#EDE5DB" />
-    </g>
-  );
-}
-
-function Nozzles() {
-  return (
-    <g>
-      <ellipse cx="100" cy="160" rx="56" ry="7" fill="#252525" opacity="0.08" />
-      {[0, 1, 2].map((i) => (
-        <g key={i} transform={`translate(${52 + i * 34} ${76 + (i % 2) * 10})`}>
-          <path d="M4 0h24l-6 58a6 6 0 0 1-12 0Z" fill="#FFFDFB" stroke="#E3D8CC" strokeWidth="2" />
-          <circle cx="16" cy="12" r="5" fill="#C9949B" opacity="0.7" />
-        </g>
-      ))}
-    </g>
-  );
-}
-
 const BACKGROUND: Record<ProductKind, string> = {
   device: "from-rose-light to-sand",
   refill: "from-sand to-rose-light",
-  care: "from-sage-light to-sand",
-  parts: "from-sand to-sage-light",
 };
 
 export function ProductVisual({ kind, className = "" }: { kind: ProductKind; className?: string }) {
@@ -73,8 +44,6 @@ export function ProductVisual({ kind, className = "" }: { kind: ProductKind; cla
       <svg viewBox="0 0 200 190" className="h-full max-h-80 w-full" aria-hidden="true">
         {kind === "device" && <Device />}
         {kind === "refill" && <Cartridges />}
-        {kind === "care" && <Care />}
-        {kind === "parts" && <Nozzles />}
       </svg>
     </div>
   );

@@ -52,7 +52,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "How do I clean it?",
-        a: "Wipe the nozzle after each use and do a full clean once a week with the Care & Cleaning Kit. Replace a nozzle about every two months. The app has step-by-step guides.",
+        a: "Wipe the dispensing tip after each use and give the device a full clean once a week. The app has step-by-step cleaning and maintenance guides.",
       },
     ],
   },

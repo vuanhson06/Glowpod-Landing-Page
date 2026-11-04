@@ -7,7 +7,6 @@ export const metadata: Metadata = { title: "Returns" };
 const RULES = [
   { item: "GlowPod Blend device / Starter Kit", window: "14 days", condition: "Unused, in the original packaging" },
   { item: "Foundation cartridges", window: "30 days", condition: "Unopened, with the factory seal intact" },
-  { item: "Care kit and nozzles", window: "30 days", condition: "Unopened" },
   { item: "Faulty or damaged items", window: "12-month warranty", condition: "Repair or replacement" },
 ];
 

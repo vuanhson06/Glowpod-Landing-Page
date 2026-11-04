@@ -5,7 +5,7 @@ import { formatVND } from "./format";
 import { FREE_SHIPPING_THRESHOLD, shippingFee } from "./shipping";
 
 const KIT = "glowpod-blend-starter-kit"; // 3,490,000
-const NOZZLES = "replacement-nozzles"; // 120,000
+const REFILL = "foundation-base-refill-set"; // 590,000
 
 describe("cartReducer", () => {
   it("adds a new line and merges repeat adds", () => {
@@ -31,19 +31,19 @@ describe("cartReducer", () => {
   it("removes and clears", () => {
     const lines = [
       { slug: KIT, qty: 1 },
-      { slug: NOZZLES, qty: 1 },
+      { slug: REFILL, qty: 1 },
     ];
-    expect(cartReducer(lines, { type: "remove", slug: KIT })).toEqual([{ slug: NOZZLES, qty: 1 }]);
+    expect(cartReducer(lines, { type: "remove", slug: KIT })).toEqual([{ slug: REFILL, qty: 1 }]);
     expect(cartReducer(lines, { type: "clear" })).toEqual([]);
   });
 
   it("totals count and subtotal", () => {
     const lines = [
       { slug: KIT, qty: 1 },
-      { slug: NOZZLES, qty: 2 },
+      { slug: REFILL, qty: 2 },
     ];
     expect(cartCount(lines)).toBe(3);
-    expect(cartSubtotal(lines)).toBe(3_490_000 + 240_000);
+    expect(cartSubtotal(lines)).toBe(3_490_000 + 1_180_000);
   });
 });
 

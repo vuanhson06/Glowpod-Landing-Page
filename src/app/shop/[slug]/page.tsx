@@ -22,7 +22,7 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
   const product = getProduct(slug);
   if (!product) notFound();
 
-  const others = products.filter((p) => p.slug !== product.slug).slice(0, 3);
+  const others = products.filter((p) => p.slug !== product.slug);
 
   return (
     <Container>
@@ -82,8 +82,8 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
       </div>
 
       <section className="mt-20">
-        <h2 className="text-2xl font-semibold tracking-tight">You may also need</h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 className="text-2xl font-semibold tracking-tight">Also in the GlowPod system</h2>
+        <div className="mt-6 grid max-w-md gap-6">
           {others.map((p) => (
             <ProductCard key={p.slug} product={p} />
           ))}

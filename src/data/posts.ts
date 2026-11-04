@@ -107,9 +107,9 @@ export const posts: Post[] = [
         ],
       },
       {
-        heading: "3. Cleaning and parts",
+        heading: "3. Cleaning and maintenance",
         paragraphs: [
-          "Ask how long cleaning takes and which parts wear out. For GlowPod, that means a quick wipe after each use, a weekly clean, and replacing a nozzle about every two months.",
+          "Ask how long cleaning takes and whether any parts need replacing. For GlowPod, that means a quick wipe after each use and a weekly clean, with step-by-step guides in the app.",
         ],
       },
       {
