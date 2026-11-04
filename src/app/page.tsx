@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ProductCard } from "@/components/ProductCard";
-import { ProductVisual } from "@/components/ProductVisual";
+import { ProductImage } from "@/components/ProductImage";
 import { ButtonLink, Container, Price } from "@/components/ui";
 import { faqGroups } from "@/data/faqs";
 import { formatPostDate, posts } from "@/data/posts";
@@ -49,7 +49,7 @@ export default function HomePage() {
               prototype price
             </p>
           </div>
-          <ProductVisual kind="device" className="aspect-square md:aspect-[5/4]" />
+          <ProductImage product={starterKit} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-square" showBadge eager />
         </Container>
       </section>
 

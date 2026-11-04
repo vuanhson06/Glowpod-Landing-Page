@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCart, useHydrated } from "@/lib/cart";
 import { FREE_SHIPPING_THRESHOLD, shippingFee } from "@/lib/shipping";
-import { ProductVisual } from "./ProductVisual";
+import { ProductImage } from "./ProductImage";
 import { QuantityStepper } from "./QuantityStepper";
 import { ButtonLink, Price } from "./ui";
 
@@ -34,7 +34,7 @@ export function CartView() {
         {items.map(({ product, qty }) => (
           <li key={product.slug} className="flex gap-4 py-5">
             <Link href={`/shop/${product.slug}`} className="w-20 shrink-0 sm:w-24">
-              <ProductVisual kind={product.kind} className="aspect-square rounded-2xl" />
+              <ProductImage product={product} sizes="96px" className="aspect-square rounded-2xl" />
             </Link>
             <div className="flex min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="min-w-0">

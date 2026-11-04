@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToCart } from "@/components/AddToCart";
 import { ProductCard } from "@/components/ProductCard";
-import { ProductVisual } from "@/components/ProductVisual";
+import { ProductImage } from "@/components/ProductImage";
 import { Container, Price, PrototypeNote } from "@/components/ui";
 import { getProduct, products } from "@/data/products";
 
@@ -34,7 +34,7 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
       </nav>
 
       <div className="grid gap-10 pt-6 md:grid-cols-2">
-        <ProductVisual kind={product.kind} className="aspect-square" />
+        <ProductImage product={product} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-square h-fit" showBadge eager />
 
         <div>
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{product.name}</h1>

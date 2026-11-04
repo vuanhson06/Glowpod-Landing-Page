@@ -20,7 +20,7 @@ export default function ShopPage() {
       </div>
       <div className="mt-10 max-w-2xl">
         <PrototypeNote>
-          All prices are placeholders for this prototype. Cartridge compatibility, shade range and dispensing accuracy
+          All prices are placeholders and product images are concept renders for this prototype. Cartridge compatibility, shade range and dispensing accuracy
           will be proven before anything is sold.
         </PrototypeNote>
       </div>

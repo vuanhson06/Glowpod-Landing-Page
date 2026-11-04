@@ -12,6 +12,7 @@ export type Product = {
   inBox: string[];
   specs: { label: string; value: string }[];
   costNote?: string;
+  image: { src: string; alt: string };
 };
 
 export const products: Product[] = [
@@ -41,6 +42,10 @@ export const products: Product[] = [
       { label: "Warranty", value: "12 months (draft terms)" },
     ],
     costNote: "The included base set is estimated at about 60 uses before the first refill.",
+    image: {
+      src: "/images/products/glowpod-blend-starter-kit.webp",
+      alt: "The GlowPod Blend dispenser: a rounded ivory device with four foundation cartridges visible through a front window and a droplet button below.",
+    },
   },
   {
     slug: "foundation-base-refill-set",
@@ -59,6 +64,10 @@ export const products: Product[] = [
       { label: "Seal", value: "Factory sealed for hygiene" },
     ],
     costNote: "About 9,800₫ per use (estimate, to be confirmed in testing).",
+    image: {
+      src: "/images/products/foundation-base-refill-set.webp",
+      alt: "Four ivory GlowPod cartridges with windows showing light, medium and deep foundation bases and a rose tone adjuster.",
+    },
   },
 ];
 
