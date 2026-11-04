@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* GlowPod brand tokens (from the brand board). Use as bg-ivory, text-charcoal, etc. */
+@theme {
+  --color-ivory: #f7f3ee;
+  --color-sand: #ede5db;
+  --color-rose: #c9949b;
+  --color-rose-light: #ecd9db;
+  --color-rose-dark: #8a5560; /* text/link shade of rose with AA contrast on ivory */
+  --color-charcoal: #252525;
+  --color-sage: #a6b5a0;
+  --color-sage-light: #e1e7de;
+  --color-sage-dark: #56664f;
+}
+
+@theme inline {
+  --font-sans: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-rose-dark);
+  outline-offset: 2px;
+}
