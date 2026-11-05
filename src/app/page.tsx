@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { ProductCard } from "@/components/ProductCard";
-import { ProductImage } from "@/components/ProductImage";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, Container, Price } from "@/components/ui";
 import { products, starterKit } from "@/data/products";
@@ -9,9 +9,6 @@ const STEPS = [
   { title: "Adjust", body: "Fine-tune the suggested shade." },
   { title: "Dispense", body: "A measured portion, mixed for you." },
 ];
-
-// The four base cartridges, shown as dots orbiting the device.
-const CARTRIDGES = ["#f1d6c2", "#d4a17c", "#8f5f42", "#c9949b"];
 
 const MARQUEE = ["Scan", "Adjust", "Save your shade", "Dispense", "Four base cartridges", "You confirm every blend"];
 
@@ -61,28 +58,39 @@ export default function HomePage() {
           </div>
 
           <div className="anim-fade-up relative mx-auto w-full max-w-md" style={{ animationDelay: "200ms" }}>
-            <div aria-hidden="true" className="absolute inset-0 rounded-full border-2 border-rose/40 anim-pulse-ring" />
+            <div aria-hidden="true" className="anim-pulse-ring absolute inset-6 rounded-[45%] border-2 border-rose/40" />
+            <div className="anim-float relative overflow-hidden rounded-t-full rounded-b-[2.5rem] shadow-2xl shadow-rose/30 ring-8 ring-white/70">
+              <Image
+                src="/images/hero/model-cartridge.webp"
+                alt="A young woman with fresh, glowing makeup holding a GlowPod foundation cartridge"
+                width={1026}
+                height={1392}
+                sizes="(min-width: 768px) 28rem, 100vw"
+                loading="eager"
+                fetchPriority="high"
+                className="anim-zoom h-auto w-full"
+              />
+            </div>
             <div
-              aria-hidden="true"
-              className="anim-spin-reverse absolute -inset-6 rounded-full border border-dashed border-sage-dark/30"
-            />
-            <div aria-hidden="true" className="orbit anim-spin-slow absolute -inset-6">
-              {CARTRIDGES.map((color, i) => (
-                <span
-                  key={color}
-                  className="absolute h-6 w-6 rounded-full shadow-lg ring-4 ring-ivory"
-                  style={{
-                    backgroundColor: color,
-                    top: `${50 - 50 * Math.cos((i * Math.PI) / 2)}%`,
-                    left: `${50 + 50 * Math.sin((i * Math.PI) / 2)}%`,
-                    translate: "-50% -50%",
-                  }}
-                />
-              ))}
+              className="anim-float absolute -bottom-6 -left-6 w-28 overflow-hidden rounded-3xl bg-white p-1.5 shadow-xl ring-1 ring-charcoal/5 sm:w-32"
+              style={{ animationDelay: "-3s" }}
+            >
+              <Image
+                src={starterKit.image.src}
+                alt=""
+                width={256}
+                height={256}
+                sizes="8rem"
+                className="aspect-square rounded-2xl object-cover"
+              />
             </div>
-            <div className="anim-float overflow-hidden rounded-full shadow-2xl shadow-rose/30">
-              <ProductImage product={starterKit} sizes="(min-width: 768px) 28rem, 100vw" className="aspect-square" eager />
-            </div>
+            <p
+              className="anim-float absolute top-10 -right-3 flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold shadow-lg backdrop-blur sm:-right-6"
+              style={{ animationDelay: "-1.5s" }}
+            >
+              <span className="h-4 w-4 rounded-full bg-[#d3a17d] ring-2 ring-white" aria-hidden="true" />
+              Shade matched
+            </p>
           </div>
         </Container>
       </section>
