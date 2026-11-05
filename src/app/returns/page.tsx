@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Container, PageHeader, PrototypeNote } from "@/components/ui";
+import { Container, PageHeader } from "@/components/ui";
 
 export const metadata: Metadata = { title: "Returns" };
 
@@ -21,8 +21,6 @@ export default function ReturnsPage() {
     <Container>
       <PageHeader eyebrow="Help" title="Returns" intro="What you can return, how long you have, and how refunds work." />
       <div className="max-w-3xl space-y-10">
-        <PrototypeNote>Draft policy for the prototype. Final terms will be reviewed before any sale.</PrototypeNote>
-
         <section>
           <h2 className="text-xl font-semibold">What can be returned</h2>
           <div className="mt-4 overflow-x-auto rounded-3xl bg-white/60 ring-1 ring-charcoal/5">

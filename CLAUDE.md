@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-A working local storefront prototype for **GlowPod**, a fictional student beauty-tech brand. Its product, GlowPod Blend, is a device that dispenses foundation from refill cartridges. The site is in English, prices are placeholders in VND, and checkout is a mock: there is no backend and no payment.
+A working local storefront prototype for **GlowPod**, a fictional student beauty-tech brand (the site itself no longer says so). Its product, GlowPod Blend, is a device that dispenses foundation from refill cartridges. The site is in English, prices are placeholders in VND, and checkout is a mock: there is no backend and no payment.
 
 Stack: Next.js 16 (App Router, `cacheComponents` and `partialPrefetching` enabled), React 19, TypeScript, Tailwind CSS v4 (CSS-first config, no `tailwind.config`), npm. Next 16 differs from older versions, so read `node_modules/next/dist/docs/` before using an unfamiliar API (see AGENTS.md).
 
@@ -37,5 +37,5 @@ npx vitest run src/lib/logic.test.ts -t "shippingFee"   # one file / one test
 
 - **Navigation:** every required page (Home, Shop, Cart, Blog, About, Checkout, Thank you, FAQ, Returns, Shipping) must be reachable within 3 clicks of `/`. The header (`MAIN_NAV` in `Header.tsx`) and footer (`Footer.tsx`) put most pages one click away. Checkout is Cart → Checkout, and Thank you is the step after Place order. Keep this rule when you add or move pages.
 - **Brand tokens** are in `src/app/globals.css` `@theme`: `ivory`, `sand`, `rose` (plus `rose-light`/`rose-dark`), `charcoal` and `sage` (plus `sage-light`/`sage-dark`). Use them as `bg-ivory`, `text-rose-dark` and so on. On ivory, use `rose-dark` or `sage-dark` for text, because plain rose and sage fail contrast. The font is Be Vietnam Pro (`--font-be-vietnam`).
-- **Honest copy:** this is a student proposal. Don't add claims of real customers, sales, testing results, medical or skin diagnosis, or superiority over competitors. Prices, policies and cost-per-use figures are labelled as prototype or draft. Use `’` or `&apos;` in JSX text, because ESLint's `react/no-unescaped-entities` rule rejects `'`.
+- **Honest copy:** the site presents GlowPod as a pre-launch brand, with no "student" or "prototype" labels on the site. Still don't add claims of real customers, sales, testing results, medical or skin diagnosis, or superiority over competitors. Checkout takes no payment, so keep the neutral "online ordering isn't open yet" notices on the checkout form, payment options, Thank-you page and FAQ. Use `’` or `&apos;` in JSX text, because ESLint's `react/no-unescaped-entities` rule rejects `'`.
 - Product images are SVG placeholders (`ProductVisual.tsx`) until real photos exist.

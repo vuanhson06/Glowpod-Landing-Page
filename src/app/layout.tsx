@@ -13,7 +13,7 @@ const beVietnam = Be_Vietnam_Pro({
 export const metadata: Metadata = {
   title: { default: "GlowPod: your foundation shade, blended at home", template: "%s · GlowPod" },
   description:
-    "GlowPod Blend scans, suggests and dispenses a measured foundation blend at home. A student prototype store.",
+    "GlowPod Blend scans, suggests and dispenses a measured foundation blend at home.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -23,9 +23,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-charcoal focus:px-4 focus:py-2 focus:text-ivory">
           Skip to content
         </a>
-        <p className="bg-charcoal px-4 py-2 text-center text-xs text-ivory">
-          Student prototype: no real orders are taken and no payment is collected.
-        </p>
         <Header />
         <main id="main" className="flex-1">
           {children}

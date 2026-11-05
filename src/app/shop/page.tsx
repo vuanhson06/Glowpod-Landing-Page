@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ProductCard } from "@/components/ProductCard";
-import { Container, PageHeader, PrototypeNote } from "@/components/ui";
+import { Container, PageHeader } from "@/components/ui";
 import { products } from "@/data/products";
 
 export const metadata: Metadata = { title: "Shop" };
@@ -17,12 +17,6 @@ export default function ShopPage() {
         {products.map((p) => (
           <ProductCard key={p.slug} product={p} />
         ))}
-      </div>
-      <div className="mt-10 max-w-2xl">
-        <PrototypeNote>
-          All prices are placeholders and product images are concept renders for this prototype. Cartridge compatibility, shade range and dispensing accuracy
-          will be proven before anything is sold.
-        </PrototypeNote>
       </div>
     </Container>
   );

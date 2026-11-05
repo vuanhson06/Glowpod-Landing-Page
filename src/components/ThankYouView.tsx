@@ -35,14 +35,14 @@ export function ThankYouView() {
           Thank you, {order.customer.fullName.split(" ").at(-1)}!
         </h1>
         <p className="mt-4 text-lg text-charcoal/75">
-          This was a demonstration order, so nothing will be shipped and no payment was taken. In the real store, we’d
-          send a confirmation to <strong className="font-semibold">{order.customer.email}</strong>.
+          Online ordering isn’t open yet, so this order won’t be shipped and no payment was taken. Once it opens, we’ll
+          send confirmations to <strong className="font-semibold">{order.customer.email}</strong>.
         </p>
 
         <h2 className="mt-10 text-lg font-semibold">What happens next</h2>
         <ol className="mt-4 space-y-4">
           {[
-            ["Confirmation", "You'd receive an email and SMS with your order details."],
+            ["Confirmation", "Once ordering opens, you’ll get an email and SMS with your order details."],
             ["Delivery", `${method.name} to ${order.customer.district}, ${city}: ${method.days[order.customer.city]}.`],
             ["Setup", "Charge the device, download the GlowPod app and follow the guided first scan."],
           ].map(([title, body], i) => (

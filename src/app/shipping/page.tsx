@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Container, PageHeader, Price, PrototypeNote } from "@/components/ui";
+import { Container, PageHeader, Price } from "@/components/ui";
 import { CITIES, FREE_SHIPPING_THRESHOLD, SHIPPING_METHODS } from "@/lib/shipping";
 
 export const metadata: Metadata = { title: "Shipping information" };
@@ -14,8 +14,6 @@ export default function ShippingPage() {
         intro="Where we plan to deliver, how long it takes and what it costs."
       />
       <div className="max-w-3xl space-y-10">
-        <PrototypeNote>Draft policy for the prototype. Final terms will be set once delivery partners are confirmed.</PrototypeNote>
-
         <section>
           <h2 className="text-xl font-semibold">Delivery times and fees</h2>
           <div className="mt-4 overflow-x-auto rounded-3xl bg-white/60 ring-1 ring-charcoal/5">

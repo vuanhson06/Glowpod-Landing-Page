@@ -44,7 +44,7 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: "What does it cost to own?",
-        a: "The Starter Kit is 3,490,000₫ and a Base Refill Set is 590,000₫, which we estimate at about 60 uses (roughly 9,800₫ per use). These are prototype prices and will be confirmed before launch.",
+        a: "The Starter Kit is 3,490,000₫ and a Base Refill Set is 590,000₫, which we estimate at about 60 uses (roughly 9,800₫ per use).",
       },
       {
         q: "Do I need a subscription?",
@@ -61,15 +61,15 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: "Can I order now?",
-        a: "Not yet. This site is a student prototype, and checkout is a demonstration only: no order is placed and no payment is taken.",
+        a: "Not yet. Online ordering isn’t open, so checkout doesn’t place an order or take a payment.",
       },
       {
         q: "Where do you deliver?",
-        a: "Our draft plan covers Ho Chi Minh City and Hanoi first, with other provinces after that. Delivery times and fees are on the Shipping page.",
+        a: "We deliver to Ho Chi Minh City and Hanoi first, with other provinces after that. Delivery times and fees are on the Shipping page.",
       },
       {
         q: "Can I return my order?",
-        a: "Our draft policy accepts unused devices within 14 days and unopened cartridges within 30 days. Opened cartridges can't be returned for hygiene reasons. See the Returns page for details.",
+        a: "We accept unused devices within 14 days and unopened cartridges within 30 days. Opened cartridges can't be returned for hygiene reasons. See the Returns page for details.",
       },
     ],
   },

@@ -30,3 +30,60 @@ body {
   outline: 2px solid var(--color-rose-dark);
   outline-offset: 2px;
 }
+
+/* ---------- Home page motion ---------- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(1.5deg); }
+}
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.12); }
+  66% { transform: translate(-30px, 20px) scale(0.92); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes shimmer { to { background-position: 200% center; } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes pulse-ring {
+  0% { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.anim-fade-up { opacity: 0; animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+.anim-float { animation: float 6s ease-in-out infinite; }
+.anim-blob { animation: blob 14s ease-in-out infinite; }
+.anim-spin-slow { animation: spin 18s linear infinite; }
+.anim-spin-reverse { animation: spin 24s linear infinite reverse; }
+.anim-marquee { animation: marquee 28s linear infinite; }
+.anim-pulse-ring { animation: pulse-ring 2.4s ease-out infinite; }
+
+.text-shimmer {
+  background: linear-gradient(90deg, var(--color-rose-dark), var(--color-rose), var(--color-sage-dark), var(--color-rose-dark));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+/* Counter-rotate an orbiting child so it stays upright while its parent spins */
+.orbit > * { animation: spin 18s linear infinite reverse; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+.lift { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -20px rgb(37 37 37 / 0.35); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .anim-fade-up, .reveal { opacity: 1; transform: none; }
+}

@@ -276,7 +276,7 @@ export function CheckoutForm() {
           Place order
         </button>
         <p className="mt-3 text-center text-xs text-charcoal/60">
-          Demonstration only: no order is sent and no payment is taken.
+          Online ordering isn’t open yet. No order is sent and no payment is taken.
         </p>
         <Link href="/cart" className="mt-3 block text-center text-sm underline">
           Back to cart

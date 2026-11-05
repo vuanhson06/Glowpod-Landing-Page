@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ButtonLink, Container, PageHeader, PrototypeNote } from "@/components/ui";
+import { ButtonLink, Container, PageHeader } from "@/components/ui";
 
 export const metadata: Metadata = { title: "About us" };
 
@@ -28,7 +28,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About us"
         title="Making foundation shade matching practical at home"
-        intro="GlowPod is a proposed Vietnamese beauty technology brand. We're starting with one clear job: helping you choose and dispense a suitable foundation shade."
+        intro="GlowPod is a Vietnamese beauty technology brand. We're starting with one clear job: helping you choose and dispense a suitable foundation shade."
       />
 
       <div className="grid gap-10 md:grid-cols-2">
@@ -77,10 +77,6 @@ export default function AboutPage() {
       </section>
 
       <section className="mt-16 max-w-2xl space-y-6">
-        <PrototypeNote>
-          GlowPod is a student business proposal. Features, target customers and advantages still need validation. We
-          don’t claim any sales, customer testing, finalised formulas or commercial partnerships.
-        </PrototypeNote>
         <div className="flex flex-wrap gap-3">
           <ButtonLink href="/shop">See the products</ButtonLink>
           <ButtonLink href="/faq" variant="outline">

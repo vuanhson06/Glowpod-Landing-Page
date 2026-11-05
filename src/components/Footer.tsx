@@ -23,6 +23,7 @@ const COLUMNS = [
     title: "GlowPod",
     links: [
       { href: "/about", label: "About us" },
+      { href: "/app", label: "The app" },
       { href: "/blog", label: "Blog" },
     ],
   },
@@ -35,8 +36,7 @@ export function Footer() {
         <div className="max-w-xs">
           <Logo />
           <p className="mt-3 text-sm leading-relaxed text-charcoal/70">
-            Foundation shade guidance and measured dispensing at home. A student business proposal: features, prices and
-            policies are still being validated.
+            Foundation shade guidance and measured dispensing at home.
           </p>
         </div>
         {COLUMNS.map((col) => (
@@ -55,7 +55,7 @@ export function Footer() {
         ))}
       </div>
       <p className="border-t border-charcoal/10 px-4 py-4 text-center text-xs text-charcoal/60">
-        © 2026 GlowPod · Student prototype, not a real store.
+        © 2026 GlowPod
       </p>
     </footer>
   );

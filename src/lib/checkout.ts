@@ -4,8 +4,8 @@ export type PaymentMethod = "cod" | "card" | "ewallet";
 
 export const PAYMENT_METHODS: { id: PaymentMethod; name: string; note: string }[] = [
   { id: "cod", name: "Cash on delivery", note: "Pay the courier when your order arrives." },
-  { id: "card", name: "Bank card", note: "Prototype only: no card details are collected." },
-  { id: "ewallet", name: "E-wallet", note: "Prototype only: no payment is taken." },
+  { id: "card", name: "Bank card", note: "Online card payment isn’t open yet. No card details are collected." },
+  { id: "ewallet", name: "E-wallet", note: "E-wallet payment isn’t open yet. No payment is taken." },
 ];
 
 export type CheckoutValues = {

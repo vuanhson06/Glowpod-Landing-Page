@@ -39,7 +39,7 @@ export const products: Product[] = [
       { label: "Cartridges", value: "4 slots, GlowPod cartridges only" },
       { label: "Connectivity", value: "Bluetooth to the GlowPod app" },
       { label: "Power", value: "Rechargeable battery, USB-C" },
-      { label: "Warranty", value: "12 months (draft terms)" },
+      { label: "Warranty", value: "12 months" },
     ],
     costNote: "The included base set is estimated at about 60 uses before the first refill.",
     image: {
@@ -63,7 +63,7 @@ export const products: Product[] = [
       { label: "Compatibility", value: "GlowPod Blend only" },
       { label: "Seal", value: "Factory sealed for hygiene" },
     ],
-    costNote: "About 9,800₫ per use (estimate, to be confirmed in testing).",
+    costNote: "About 9,800₫ per use (estimate).",
     image: {
       src: "/images/products/foundation-base-refill-set.webp",
       alt: "Four ivory GlowPod cartridges with windows showing light, medium and deep foundation bases and a rose tone adjuster.",

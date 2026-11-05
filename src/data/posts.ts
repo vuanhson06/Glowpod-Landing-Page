@@ -50,7 +50,7 @@ export const posts: Post[] = [
     sections: [
       {
         paragraphs: [
-          "GlowPod Blend is built around one job: helping you choose and dispense a foundation shade at home. This is how the planned process works, step by step.",
+          "GlowPod Blend is built around one job: helping you choose and dispense a foundation shade at home. This is how the process works, step by step.",
         ],
       },
       {
@@ -115,7 +115,7 @@ export const posts: Post[] = [
       {
         heading: "4. Support and returns",
         paragraphs: [
-          "Check the warranty, whether there is local support in your language, and what can be returned. For hygiene reasons, opened cartridges usually can't be returned. Our draft policy is on the Returns page.",
+          "Check the warranty, whether there is local support in your language, and what can be returned. For hygiene reasons, opened cartridges usually can't be returned. Our policy is on the Returns page.",
         ],
       },
     ],

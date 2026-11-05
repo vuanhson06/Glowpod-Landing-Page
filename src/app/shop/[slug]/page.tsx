@@ -34,14 +34,13 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
       </nav>
 
       <div className="grid gap-10 pt-6 md:grid-cols-2">
-        <ProductImage product={product} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-square h-fit" showBadge eager />
+        <ProductImage product={product} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-square h-fit" eager />
 
         <div>
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{product.name}</h1>
           <p className="mt-3 text-lg text-charcoal/75">{product.tagline}</p>
           <p className="mt-5 text-2xl font-semibold">
             <Price amount={product.price} />
-            <span className="ml-2 align-middle text-xs font-normal text-charcoal/60">prototype price</span>
           </p>
           {product.costNote && <p className="mt-2 text-sm text-sage-dark">{product.costNote}</p>}
 
@@ -75,7 +74,7 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
           <div className="mt-8">
             <PrototypeNote>
               Delivery in 2–5 working days. See <Link href="/shipping" className="underline">shipping</Link> and{" "}
-              <Link href="/returns" className="underline">returns</Link> (draft policies).
+              <Link href="/returns" className="underline">returns</Link>.
             </PrototypeNote>
           </div>
         </div>

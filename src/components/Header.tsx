@@ -9,6 +9,7 @@ import { Logo } from "./Logo";
 export const MAIN_NAV = [
   { href: "/", label: "Home" },
   { href: "/shop", label: "Shop" },
+  { href: "/app", label: "App" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
