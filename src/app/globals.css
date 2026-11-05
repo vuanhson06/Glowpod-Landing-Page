@@ -83,6 +83,70 @@ body {
 .lift { transition: transform 0.35s ease, box-shadow 0.35s ease; }
 .lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -20px rgb(37 37 37 / 0.35); }
 
+/* ---------- App page phone screens (6s loop, see AppScreens.tsx) ---------- */
+/* Stage N appears at 20·N % of the loop; app-out-N hides at the same moment. */
+.app-in-1 { animation: app-in-1 6s infinite; }
+.app-in-2 { animation: app-in-2 6s infinite; }
+.app-in-3 { animation: app-in-3 6s infinite; }
+.app-in-4 { animation: app-in-4 6s infinite; }
+.app-out-1, .app-out-2, .app-out-3, .app-out-4 { opacity: 0; }
+.app-out-1 { animation: app-out-1 6s infinite; }
+.app-out-2 { animation: app-out-2 6s infinite; }
+.app-out-3 { animation: app-out-3 6s infinite; }
+.app-out-4 { animation: app-out-4 6s infinite; }
+@keyframes app-in-1 { 0%, 18% { opacity: 0; transform: translateY(6px); } 23%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes app-in-2 { 0%, 38% { opacity: 0; transform: translateY(6px); } 43%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes app-in-3 { 0%, 58% { opacity: 0; transform: translateY(6px); } 63%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes app-in-4 { 0%, 78% { opacity: 0; transform: translateY(6px); } 83%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes app-out-1 { 0%, 17% { opacity: 1; } 21%, 95% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes app-out-2 { 0%, 37% { opacity: 1; } 41%, 95% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes app-out-3 { 0%, 57% { opacity: 1; } 61%, 95% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes app-out-4 { 0%, 77% { opacity: 1; } 81%, 95% { opacity: 0; } 100% { opacity: 1; } }
+
+/* A fingertip press */
+.app-tap {
+  position: absolute; left: 50%; top: 50%; z-index: 20;
+  width: 34px; height: 34px; margin: -17px 0 0 -17px;
+  border-radius: 9999px; pointer-events: none; opacity: 0;
+  background: rgb(37 37 37 / 0.22); box-shadow: 0 0 0 2px rgb(255 255 255 / 0.75);
+  animation: app-tap 6s infinite;
+}
+@keyframes app-tap {
+  0% { opacity: 0; transform: scale(1.6); }
+  6% { opacity: 1; transform: scale(1); }
+  9% { transform: scale(0.8); }
+  15% { opacity: 0; transform: scale(1.9); }
+  100% { opacity: 0; }
+}
+
+.app-scan { animation: app-scan 2.4s ease-in-out infinite alternate; top: 45%; }
+@keyframes app-scan { from { top: 14%; } to { top: 74%; } }
+
+.app-flash { opacity: 0; animation: app-flash 6s infinite; }
+@keyframes app-flash {
+  0%, 18%, 24%, 38%, 44%, 58%, 64%, 100% { opacity: 0; }
+  20%, 40%, 60% { opacity: 0.7; }
+}
+
+.app-shade { animation: app-shade 6s ease-in-out infinite; }
+@keyframes app-shade {
+  0%, 12% { background-color: #dcb08f; }
+  40% { background-color: #c8946f; }
+  65%, 100% { background-color: #d3a17d; }
+}
+.app-thumb-1 { left: 58%; animation: app-thumb-1 6s ease-in-out infinite; }
+@keyframes app-thumb-1 { 0%, 14% { left: 40%; } 28% { left: 68%; } 40%, 100% { left: 58%; } }
+.app-thumb-2 { left: 38%; animation: app-thumb-2 6s ease-in-out infinite; }
+@keyframes app-thumb-2 { 0%, 46% { left: 52%; } 64%, 100% { left: 38%; } }
+.app-drag-1, .app-drag-2 { opacity: 0; }
+.app-drag-1 { animation: app-drag-1 6s infinite; }
+.app-drag-2 { animation: app-drag-2 6s infinite; }
+@keyframes app-drag-1 { 0%, 10% { opacity: 0; } 14%, 40% { opacity: 1; } 45%, 100% { opacity: 0; } }
+@keyframes app-drag-2 { 0%, 43% { opacity: 0; } 46%, 64% { opacity: 1; } 69%, 100% { opacity: 0; } }
+
+.app-ring { stroke-dasharray: 100; stroke-dashoffset: 0; animation: app-ring 6s ease-in-out infinite; }
+@keyframes app-ring { 0%, 40% { stroke-dashoffset: 100; } 78%, 100% { stroke-dashoffset: 0; } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .anim-fade-up, .reveal { opacity: 1; transform: none; }

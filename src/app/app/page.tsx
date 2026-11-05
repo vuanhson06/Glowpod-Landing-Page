@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { APP_SCREENS } from "@/components/AppScreens";
+import { Reveal } from "@/components/Reveal";
 import { ButtonLink, Container, PageHeader, PrototypeNote } from "@/components/ui";
 
 export const metadata: Metadata = { title: "The GlowPod app" };
@@ -78,23 +80,30 @@ export default function AppPage() {
         </div>
       </section>
 
-      <section className="mt-16">
+      <section className="mt-20">
         <h2 className="text-2xl font-semibold tracking-tight">How to use it</h2>
-        <ol className="mt-6 grid gap-6 md:grid-cols-2">
-          {STEPS.map((s, i) => (
-            <li key={s.title} className="flex gap-4 rounded-3xl bg-white/60 p-6 ring-1 ring-charcoal/5">
-              <span
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose text-sm font-semibold text-charcoal"
-                aria-hidden="true"
-              >
-                {i + 1}
-              </span>
-              <div>
-                <h3 className="font-semibold">{s.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-charcoal/70">{s.body}</p>
-              </div>
-            </li>
-          ))}
+        <ol className="mt-10 space-y-16 md:space-y-24">
+          {STEPS.map((s, i) => {
+            const Screen = APP_SCREENS[i];
+            return (
+              <li key={s.title}>
+                <Reveal className="grid items-center gap-8 md:grid-cols-2 md:gap-16">
+                  <div className={i % 2 ? "md:order-2" : ""}>
+                    <span className="text-shimmer text-5xl font-semibold">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="mt-3 text-2xl font-semibold">{s.title}</h3>
+                    <p className="mt-3 max-w-md text-lg leading-relaxed text-charcoal/70">{s.body}</p>
+                  </div>
+                  <div className="relative">
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-x-8 top-10 bottom-10 -z-10 rounded-full bg-rose-light/70 blur-3xl"
+                    />
+                    <Screen />
+                  </div>
+                </Reveal>
+              </li>
+            );
+          })}
         </ol>
       </section>
 
