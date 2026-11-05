@@ -1,13 +1,38 @@
 import Image from "next/image";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
-import { ButtonLink, Container, Price } from "@/components/ui";
+import { ShadeSlider } from "@/components/ShadeSlider";
+import { Wave } from "@/components/Wave";
+import { ButtonLink, Container } from "@/components/ui";
 import { products, starterKit } from "@/data/products";
 
 const STEPS = [
   { title: "Scan", body: "Guided lighting, photo quality checked." },
   { title: "Adjust", body: "Fine-tune the suggested shade." },
   { title: "Dispense", body: "A measured portion, mixed for you." },
+];
+
+const TRUST = [
+  {
+    title: "You confirm every blend",
+    body: "Nothing is dispensed until you say so.",
+    icon: "M20 6 9 17l-5-5",
+  },
+  {
+    title: "No subscription needed",
+    body: "Basic use is free after you buy the kit.",
+    icon: "M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6",
+  },
+  {
+    title: "Tested shade range only",
+    body: "The app never suggests a blend outside it.",
+    icon: "M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z",
+  },
+  {
+    title: "Your photos, your call",
+    body: "Delete your scan photos any time.",
+    icon: "M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14",
+  },
 ];
 
 const MARQUEE = ["Scan", "Adjust", "Save your shade", "Dispense", "Four base cartridges", "You confirm every blend"];
@@ -43,17 +68,6 @@ export default function HomePage() {
               style={{ animationDelay: "260ms" }}
             >
               Scan with your phone. Confirm the blend. Dispense.
-            </p>
-            <div className="anim-fade-up mt-8 flex flex-wrap gap-3" style={{ animationDelay: "400ms" }}>
-              <ButtonLink href={`/shop/${starterKit.slug}`} className="lift">
-                See the Starter Kit
-              </ButtonLink>
-              <ButtonLink href="/app" variant="outline" className="lift">
-                Meet the app
-              </ButtonLink>
-            </div>
-            <p className="anim-fade-up mt-6 text-sm text-charcoal/60" style={{ animationDelay: "520ms" }}>
-              From <Price amount={starterKit.price} className="font-semibold text-charcoal" />
             </p>
           </div>
 
@@ -96,7 +110,8 @@ export default function HomePage() {
       </section>
 
       {/* Marquee */}
-      <div className="overflow-hidden border-y border-charcoal/10 bg-charcoal py-4 text-ivory" aria-hidden="true">
+      <Wave className="-mt-16 text-charcoal sm:-mt-24" />
+      <div className="overflow-hidden bg-charcoal py-4 text-ivory" aria-hidden="true">
         <div className="anim-marquee flex w-max gap-10 whitespace-nowrap text-lg font-medium">
           {[...MARQUEE, ...MARQUEE].map((word, i) => (
             <span key={i} className="flex items-center gap-10">
@@ -106,9 +121,10 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+      <div className="shade-band h-2" aria-hidden="true" />
 
       {/* Steps */}
-      <section className="py-20">
+      <section className="bg-[#f0e9e1] py-20">
         <Container>
           <Reveal>
             <h2 className="text-center text-3xl font-semibold tracking-tight sm:text-4xl">Three steps. That’s it.</h2>
@@ -133,10 +149,31 @@ export default function HomePage() {
           </Reveal>
         </Container>
       </section>
+      <Wave flip className="text-[#f0e9e1]" />
+
+      {/* Shade slider */}
+      <section className="py-20">
+        <Container>
+          <Reveal>
+            <p className="text-center text-sm font-semibold tracking-[0.2em] text-rose-dark uppercase">Try it</p>
+            <h2 className="mt-2 text-center text-3xl font-semibold tracking-tight sm:text-4xl">Play with a blend</h2>
+            <p className="mx-auto mt-3 max-w-lg text-center text-charcoal/70">
+              Move the sliders and watch the four cartridges mix into a new shade.
+            </p>
+          </Reveal>
+          <Reveal delay={150} className="mt-10">
+            <ShadeSlider />
+          </Reveal>
+        </Container>
+      </section>
 
       {/* Products */}
-      <section className="pb-20">
+      <Wave className="text-[#f2e6e5]" />
+      <section className="bg-[#f2e6e5] py-20">
         <Container>
+          <Reveal>
+            <h2 className="mb-10 text-center text-3xl font-semibold tracking-tight sm:text-4xl">Everything you need</h2>
+          </Reveal>
           <div className="grid gap-6 sm:grid-cols-2">
             {products.map((p, i) => (
               <Reveal key={p.slug} delay={i * 150} className="lift rounded-3xl">
@@ -144,6 +181,32 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+        </Container>
+      </section>
+      <Wave flip className="text-[#f2e6e5]" />
+
+      {/* Trust strip */}
+      <section className="py-16">
+        <Container>
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {TRUST.map((t, i) => (
+              <li key={t.title}>
+                <Reveal delay={i * 100} className="h-full">
+                  <div className="flex h-full gap-4 rounded-3xl p-2">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sage-light text-sage-dark">
+                      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d={t.icon} />
+                      </svg>
+                    </span>
+                    <div>
+                      <h3 className="font-semibold">{t.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-charcoal/65">{t.body}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
 

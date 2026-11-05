@@ -79,6 +79,25 @@ body {
 .lift { transition: transform 0.35s ease, box-shadow 0.35s ease; }
 .lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -20px rgb(37 37 37 / 0.35); }
 
+/* ---------- Home: shade band and shade slider ---------- */
+.shade-band {
+  background: linear-gradient(90deg, #f1d6c2, #d4a17c, #8f5f42, #c9949b, #f1d6c2);
+  background-size: 200% 100%;
+  animation: shimmer 12s linear infinite;
+}
+
+.shade-range { appearance: none; height: 10px; border-radius: 9999px; cursor: pointer; }
+.shade-range::-webkit-slider-thumb {
+  appearance: none; width: 26px; height: 26px; border-radius: 9999px;
+  background: #fff; border: 3px solid var(--color-charcoal);
+  box-shadow: 0 4px 10px rgb(37 37 37 / 0.25); transition: transform 0.15s;
+}
+.shade-range::-moz-range-thumb {
+  width: 20px; height: 20px; border-radius: 9999px;
+  background: #fff; border: 3px solid var(--color-charcoal); box-shadow: 0 4px 10px rgb(37 37 37 / 0.25);
+}
+.shade-range:active::-webkit-slider-thumb { transform: scale(1.15); }
+
 /* ---------- App page phone screens (6s loop, see AppScreens.tsx) ---------- */
 /* Stage N appears at 20·N % of the loop; app-out-N hides at the same moment. */
 .app-in-1 { animation: app-in-1 6s infinite; }
