@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EmailSignup } from "./EmailSignup";
 import { Logo } from "./Logo";
 
 const COLUMNS = [
@@ -17,6 +18,7 @@ const COLUMNS = [
       { href: "/faq", label: "FAQ" },
       { href: "/shipping", label: "Shipping information" },
       { href: "/returns", label: "Returns" },
+      { href: "/contact", label: "Contact us" },
     ],
   },
   {
@@ -32,6 +34,17 @@ const COLUMNS = [
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-charcoal/10 bg-sand/60">
+      <section aria-labelledby="signup-title" className="border-b border-charcoal/10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 id="signup-title" className="text-xl font-semibold">
+              Get launch news and shade tips
+            </h2>
+            <p className="mt-1 text-sm text-charcoal/70">Occasional emails, no spam. Unsubscribe any time.</p>
+          </div>
+          <EmailSignup />
+        </div>
+      </section>
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div className="max-w-xs">
           <Logo />

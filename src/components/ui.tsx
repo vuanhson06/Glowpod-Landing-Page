@@ -43,3 +43,32 @@ export function PrototypeNote({ children }: { children: ReactNode }) {
     <p className="rounded-2xl border border-sage/60 bg-sage-light/60 px-4 py-3 text-sm text-sage-dark">{children}</p>
   );
 }
+
+export const INPUT =
+  "mt-1 block w-full rounded-xl border border-charcoal/20 bg-white px-3 py-2.5 text-base outline-none focus:border-rose-dark focus:ring-2 focus:ring-rose/40 aria-[invalid=true]:border-red-700";
+
+export function Field({
+  id,
+  label,
+  error,
+  children,
+}: {
+  id: string;
+  label: string;
+  error?: string;
+  children: ReactNode;
+}) {
+  return (
+    <div>
+      <label htmlFor={id} className="text-sm font-medium">
+        {label}
+      </label>
+      {children}
+      {error && (
+        <p id={`${id}-error`} className="mt-1 text-sm text-red-700">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}

@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { useCart, useHydrated } from "@/lib/cart";
 import { PAYMENT_METHODS, validateCheckout, type CheckoutErrors, type CheckoutValues } from "@/lib/checkout";
 import { newOrderId, saveLastOrder } from "@/lib/order";
 import { CITIES, SHIPPING_METHODS, shippingFee } from "@/lib/shipping";
-import { ButtonLink, buttonClass, Price } from "./ui";
+import { ButtonLink, buttonClass, Field, INPUT, Price } from "./ui";
 
 const INITIAL: CheckoutValues = {
   fullName: "",
@@ -20,35 +20,6 @@ const INITIAL: CheckoutValues = {
   payment: "cod",
   notes: "",
 };
-
-const INPUT =
-  "mt-1 block w-full rounded-xl border border-charcoal/20 bg-white px-3 py-2.5 text-base outline-none focus:border-rose-dark focus:ring-2 focus:ring-rose/40 aria-[invalid=true]:border-red-700";
-
-function Field({
-  id,
-  label,
-  error,
-  children,
-}: {
-  id: string;
-  label: string;
-  error?: string;
-  children: ReactNode;
-}) {
-  return (
-    <div>
-      <label htmlFor={id} className="text-sm font-medium">
-        {label}
-      </label>
-      {children}
-      {error && (
-        <p id={`${id}-error`} className="mt-1 text-sm text-red-700">
-          {error}
-        </p>
-      )}
-    </div>
-  );
-}
 
 export function CheckoutForm() {
   const router = useRouter();
