@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "The GlowPod app" };
 const FEATURES = [
   {
     title: "Guided face scan",
-    body: "Uses your phone camera and guides you to even light. Each photo is checked for blur, shadows and colour casts before it’s used.",
+    body: "Uses your phone camera and the GlowPod Colour Card, which corrects for your camera’s white balance. The app guides you to even light, and each photo is checked for blur, shadows and colour casts before it’s used.",
   },
   {
     title: "Shade suggestion you control",
@@ -43,7 +43,7 @@ const STEPS = [
   },
   {
     title: "Scan your face",
-    body: "Stand in even light with a neutral background and follow the prompts. If the light isn’t good enough, the app asks you to rescan instead of guessing.",
+    body: "Stand in even light with a neutral background, hold the Colour Card at your jawline and follow the prompts. If the light isn’t good enough, the app asks you to rescan instead of guessing.",
   },
   {
     title: "Review and adjust",
@@ -51,7 +51,7 @@ const STEPS = [
   },
   {
     title: "Confirm and dispense",
-    body: "Nothing is dispensed until you confirm. The device then mixes and dispenses a measured portion.",
+    body: "Nothing is dispensed until you confirm. The device then mixes and dispenses a measured 0.25 ml portion into your palm.",
   },
   {
     title: "Clean up",

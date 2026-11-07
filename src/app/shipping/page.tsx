@@ -38,8 +38,14 @@ export default function ShippingPage() {
                     </th>
                     {CITIES.map((c) => (
                       <td key={c.id} className="px-5 py-4">
-                        <Price amount={m.fee[c.id]} className="block font-semibold" />
-                        <span className="text-charcoal/60">{m.days[c.id]}</span>
+                        {m.fee[c.id] === undefined ? (
+                          <span className="text-charcoal/60">Not available</span>
+                        ) : (
+                          <>
+                            <Price amount={m.fee[c.id]!} className="block font-semibold" />
+                            <span className="text-charcoal/60">{m.days[c.id]}</span>
+                          </>
+                        )}
                       </td>
                     ))}
                   </tr>
@@ -49,14 +55,15 @@ export default function ShippingPage() {
           </div>
           <p className="mt-4 text-sm text-charcoal/75">
             <strong className="font-semibold">Free standard delivery</strong> on orders of{" "}
-            <Price amount={FREE_SHIPPING_THRESHOLD} /> or more, anywhere we deliver. Express delivery is always charged.
+            <Price amount={FREE_SHIPPING_THRESHOLD} /> or more, anywhere we deliver. Same-day delivery is always charged.
           </p>
         </section>
 
         <section className="space-y-3 leading-relaxed text-charcoal/80">
           <h2 className="text-xl font-semibold text-charcoal">How delivery works</h2>
           <ul className="list-disc space-y-2 pl-5">
-            <li>We start with Ho Chi Minh City and Hanoi. Other provinces come after.</li>
+            <li>Standard delivery reaches every province in 2–3 days.</li>
+            <li>Same-day delivery is available in Ho Chi Minh City and Hanoi.</li>
             <li>Orders placed before 2 pm on a working day are packed the same day.</li>
             <li>You’ll get a tracking link by email and SMS once your order ships.</li>
             <li>Cash on delivery is available for all addresses.</li>

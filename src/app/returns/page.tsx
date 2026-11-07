@@ -5,15 +5,28 @@ import { Container, PageHeader } from "@/components/ui";
 export const metadata: Metadata = { title: "Returns" };
 
 const RULES = [
-  { item: "GlowPod Blend device / Starter Kit", window: "14 days", condition: "Unused, in the original packaging" },
-  { item: "Foundation cartridges", window: "30 days", condition: "Unopened, with the factory seal intact" },
-  { item: "Faulty or damaged items", window: "12-month warranty", condition: "Repair or replacement" },
+  {
+    item: "GlowPod Blend dispenser",
+    window: "12 months",
+    condition: "1-to-1 replacement if an electrical part or sensor stops working",
+  },
+  {
+    item: "GlowPod Blend dispenser",
+    window: "30 days",
+    condition: "Return if the nozzle keeps blocking even though you follow the guided cleaning steps in the app",
+  },
+  { item: "Unopened cartridges", window: "30 days", condition: "Factory seal intact" },
+  {
+    item: "Opened cartridges",
+    window: "7 days",
+    condition: "Only if you have an allergic reaction, confirmed by a dermatologist’s report. You get 100% store credit.",
+  },
 ];
 
 const STEPS = [
   "Contact our support team with your order number and the reason for the return.",
   "We'll send you a return label and arrange a courier pickup in HCMC or Hanoi.",
-  "Once the item arrives and is checked, we refund you within 7 working days.",
+  "Once the item arrives and is checked, we send a replacement, refund you or add store credit within 7 working days.",
 ];
 
 export default function ReturnsPage() {
@@ -34,7 +47,7 @@ export default function ReturnsPage() {
               </thead>
               <tbody className="divide-y divide-charcoal/10">
                 {RULES.map((r) => (
-                  <tr key={r.item}>
+                  <tr key={r.item + r.window}>
                     <th scope="row" className="px-5 py-4 font-medium">{r.item}</th>
                     <td className="px-5 py-4">{r.window}</td>
                     <td className="px-5 py-4 text-charcoal/75">{r.condition}</td>
@@ -44,8 +57,9 @@ export default function ReturnsPage() {
             </table>
           </div>
           <p className="mt-4 text-sm text-charcoal/75">
-            <strong className="font-semibold">Hygiene rule:</strong> opened cartridges can’t be returned unless they are
-            faulty, because cosmetic products can’t be resold once the seal is broken.
+            <strong className="font-semibold">Hygiene rule:</strong> opened cartridges can’t be returned, because cosmetic
+            products can’t be resold once the seal is broken. The only exception is a confirmed allergic reaction within
+            7 days, which we refund as store credit.
           </p>
         </section>
 

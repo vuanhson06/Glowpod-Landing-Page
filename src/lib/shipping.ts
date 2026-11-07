@@ -14,8 +14,9 @@ export const FREE_SHIPPING_THRESHOLD = 1_000_000;
 type Method = {
   id: ShippingMethodId;
   name: string;
-  fee: Record<City, number>;
-  days: Record<City, string>;
+  /** A city missing from `fee` and `days` can't use this method. */
+  fee: Partial<Record<City, number>>;
+  days: Partial<Record<City, string>>;
   freeOverThreshold: boolean;
 };
 
@@ -24,14 +25,15 @@ export const SHIPPING_METHODS: Method[] = [
     id: "standard",
     name: "Standard delivery",
     fee: { hcmc: 30_000, hanoi: 30_000, other: 45_000 },
-    days: { hcmc: "2–3 working days", hanoi: "2–3 working days", other: "3–5 working days" },
+    days: { hcmc: "2–3 days", hanoi: "2–3 days", other: "2–3 days" },
     freeOverThreshold: true,
   },
   {
+    // Kept as "express" so orders saved under the old name still load.
     id: "express",
-    name: "Express delivery",
-    fee: { hcmc: 60_000, hanoi: 60_000, other: 90_000 },
-    days: { hcmc: "Next working day", hanoi: "Next working day", other: "2–3 working days" },
+    name: "Same-day delivery",
+    fee: { hcmc: 60_000, hanoi: 60_000 },
+    days: { hcmc: "Same day", hanoi: "Same day" },
     freeOverThreshold: false,
   },
 ];
@@ -42,10 +44,19 @@ export function getShippingMethod(id: ShippingMethodId): Method {
   return method;
 }
 
+export function isMethodAvailable(id: ShippingMethodId, city: City): boolean {
+  return getShippingMethod(id).fee[city] !== undefined;
+}
+
+/** The chosen method, or standard delivery if the chosen one doesn't reach this city. */
+export function effectiveMethod(id: ShippingMethodId, city: City): ShippingMethodId {
+  return isMethodAvailable(id, city) ? id : "standard";
+}
+
 /** Shipping fee in VND. An empty order costs nothing to ship. */
 export function shippingFee(methodId: ShippingMethodId, city: City, subtotal: number): number {
   if (subtotal <= 0) return 0;
-  const method = getShippingMethod(methodId);
+  const method = getShippingMethod(effectiveMethod(methodId, city));
   if (method.freeOverThreshold && subtotal >= FREE_SHIPPING_THRESHOLD) return 0;
-  return method.fee[city];
+  return method.fee[city] ?? 0;
 }

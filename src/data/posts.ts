@@ -34,7 +34,7 @@ export const posts: Post[] = [
         heading: "What helps",
         paragraphs: [
           "Check a shade in indirect daylight near a window, along the jawline, and give it a few minutes to settle. Compare it with your neck and chest as well as your face.",
-          "GlowPod's scan asks you to stand in even light and checks image quality before suggesting anything. If the light is too dim or too uneven, the app asks you to try again rather than guess. You can still adjust the suggested blend by hand.",
+          "GlowPod's scan asks you to stand in even light and hold the GlowPod Colour Card at your jawline. The card has fixed reference colours, so the app can correct for your phone camera's white balance. It also checks image quality before suggesting anything. If the light is too dim or too uneven, the app asks you to try again rather than guess. You can still adjust the suggested blend by hand.",
         ],
       },
     ],
@@ -56,7 +56,7 @@ export const posts: Post[] = [
       {
         heading: "1. A guided scan",
         paragraphs: [
-          "The app guides you to even lighting and a neutral background, then takes a few photos with your phone camera. It checks each image for quality, for example blur, shadows and strong colour casts, before using it.",
+          "You hold the GlowPod Colour Card at your jawline while the app guides you to even lighting and a neutral background, then takes a few photos with your phone camera. The card’s fixed reference colours let the app correct for your camera’s white balance. It checks each image for quality, for example blur, shadows and strong colour casts, before using it.",
         ],
       },
       {
@@ -68,7 +68,7 @@ export const posts: Post[] = [
       {
         heading: "3. You confirm, then the device dispenses",
         paragraphs: [
-          "You see the suggested shade and can make it lighter, deeper, warmer or cooler within the tested limits. Nothing is dispensed until you confirm. The device then mixes and dispenses a measured portion.",
+          "You see the suggested shade and can make it lighter, deeper, warmer or cooler within the tested limits. Nothing is dispensed until you confirm. The device then mixes and dispenses a measured 0.25 ml portion.",
           "You can save the result as a profile and reuse it, or create separate profiles for different seasons.",
         ],
       },
@@ -97,7 +97,7 @@ export const posts: Post[] = [
       {
         heading: "1. Cost per use",
         paragraphs: [
-          "Divide the refill price by the number of uses it gives. Our current estimate for the GlowPod Base Refill Set is about 9,800₫ per use. That figure will be confirmed in testing, and we publish the device price, the refill price and the cost per use side by side.",
+          "Divide the refill price by the number of uses it gives. Our current estimate for the GlowPod Base Refill Set is about 8,700₫ per day of use. That figure will be confirmed in testing, and we publish the device price, the refill price and the cost per use side by side.",
         ],
       },
       {

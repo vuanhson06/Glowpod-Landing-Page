@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useCart, useHydrated } from "@/lib/cart";
 import { PAYMENT_METHODS, validateCheckout, type CheckoutErrors, type CheckoutValues } from "@/lib/checkout";
 import { newOrderId, saveLastOrder } from "@/lib/order";
-import { CITIES, SHIPPING_METHODS, shippingFee } from "@/lib/shipping";
+import { CITIES, SHIPPING_METHODS, effectiveMethod, isMethodAvailable, shippingFee } from "@/lib/shipping";
 import { ButtonLink, buttonClass, Field, INPUT, Price } from "./ui";
 
 const INITIAL: CheckoutValues = {
@@ -49,7 +49,9 @@ export function CheckoutForm() {
     );
   }
 
-  const fee = shippingFee(values.shipping, values.city, subtotal);
+  // Same-day delivery only reaches some cities, so fall back to standard elsewhere.
+  const shipping = effectiveMethod(values.shipping, values.city);
+  const fee = shippingFee(shipping, values.city, subtotal);
   const total = subtotal + fee;
 
   const set = <K extends keyof CheckoutValues>(key: K, value: CheckoutValues[K]) => {
@@ -82,7 +84,7 @@ export function CheckoutForm() {
     saveLastOrder({
       id: newOrderId(),
       createdAt: new Date().toISOString(),
-      customer: values,
+      customer: { ...values, shipping },
       items: items.map(({ product, qty }) => ({ slug: product.slug, name: product.name, price: product.price, qty })),
       subtotal,
       shippingFee: fee,
@@ -160,27 +162,33 @@ export function CheckoutForm() {
           <legend className="text-lg font-semibold">Shipping method</legend>
           <div className="mt-3 space-y-3">
             {SHIPPING_METHODS.map((m) => {
+              const available = isMethodAvailable(m.id, values.city);
               const methodFee = shippingFee(m.id, values.city, subtotal);
               return (
                 <label
                   key={m.id}
-                  className="flex cursor-pointer items-center justify-between gap-4 rounded-2xl border border-charcoal/15 bg-white/60 px-4 py-3 has-[:checked]:border-charcoal has-[:checked]:bg-white"
+                  className={`flex items-center justify-between gap-4 rounded-2xl border border-charcoal/15 bg-white/60 px-4 py-3 has-[:checked]:border-charcoal has-[:checked]:bg-white ${available ? "cursor-pointer" : "cursor-not-allowed opacity-60"}`}
                 >
                   <span className="flex items-center gap-3">
                     <input
                       type="radio"
                       name="shipping"
                       value={m.id}
-                      checked={values.shipping === m.id}
+                      checked={shipping === m.id}
+                      disabled={!available}
                       onChange={() => set("shipping", m.id)}
                       className="accent-charcoal"
                     />
                     <span>
                       <span className="block font-medium">{m.name}</span>
-                      <span className="block text-sm text-charcoal/60">{m.days[values.city]}</span>
+                      <span className="block text-sm text-charcoal/60">
+                        {available ? m.days[values.city] : "Ho Chi Minh City and Hanoi only"}
+                      </span>
                     </span>
                   </span>
-                  <span className="text-sm font-semibold">{methodFee === 0 ? "Free" : <Price amount={methodFee} />}</span>
+                  {available && (
+                    <span className="text-sm font-semibold">{methodFee === 0 ? "Free" : <Price amount={methodFee} />}</span>
+                  )}
                 </label>
               );
             })}

@@ -196,7 +196,7 @@ function CartridgeScreen() {
 /* 3. Scan your face */
 function ScanScreen() {
   return (
-    <Phone dark label="App screen: the camera view guides the user's face into an oval while the app checks sharpness, light and colour.">
+    <Phone dark label="App screen: the camera view guides the user's face into an oval, finds the GlowPod Colour Card held at the jawline, and checks sharpness, light and colour.">
       <div className="absolute inset-0 bg-linear-to-b from-[#5b4a42] via-[#3f342f] to-[#1d1816]" />
       <div className="relative z-10 mx-auto mt-3 flex items-center gap-1.5 rounded-full bg-black/40 px-3 py-1 text-[10px] font-medium text-white backdrop-blur">
         <span className="h-1.5 w-1.5 rounded-full bg-[#9fe0a0]" /> Light: even
@@ -216,6 +216,13 @@ function ScanScreen() {
           <ellipse cx="82" cy="114" rx="5" ry="3" fill="#3a2a22" opacity=".8" />
           <ellipse cx="118" cy="114" rx="5" ry="3" fill="#3a2a22" opacity=".8" />
           <path d="M88 146 Q100 153 112 146" stroke="#a35d62" strokeWidth="4" fill="none" strokeLinecap="round" />
+          {/* GlowPod Colour Card held at the jawline */}
+          <g transform="rotate(-8 150 176)">
+            <rect x="128" y="160" width="46" height="30" rx="4" fill="#fbf8f4" stroke="#ffffff" strokeWidth="1.5" />
+            {["#f1d6c2", "#e3b58f", "#d4a17c", "#8f5f42", "#9a9a9a", "#ffffff"].map((c, i) => (
+              <rect key={c} x={132 + (i % 3) * 13} y={164 + Math.floor(i / 3) * 11} width="11" height="9" rx="1.5" fill={c} stroke="#00000018" />
+            ))}
+          </g>
         </svg>
         <div className="absolute inset-x-2 top-1 bottom-10 rounded-[50%] border-2 border-dashed border-white/80" />
         <div className="app-scan absolute inset-x-3 h-0.5 rounded-full bg-[#9fe0a0] shadow-[0_0_12px_2px_rgb(159_224_160/0.8)]" />
@@ -241,7 +248,7 @@ function ScanScreen() {
           </span>
         </div>
         <div className="mt-2.5 grid grid-cols-3 gap-1 text-[9px]">
-          {["Sharp", "Even light", "True colour"].map((t, i) => (
+          {["Sharp", "Even light", "Card found"].map((t, i) => (
             <span key={t} className={`app-in-${i + 1} flex items-center gap-1`}>
               <Check className="h-3.5 w-3.5" /> {t}
             </span>
@@ -312,12 +319,12 @@ function DispenseScreen() {
         <span className="h-10 w-10 rounded-full bg-[#d3a17d] ring-2 ring-white" />
         <div className="flex-1">
           <p className="text-[12px] font-semibold">Everyday · Warm beige</p>
-          <p className="text-[10px] text-charcoal/50">1 portion · about 0.8 ml</p>
+          <p className="text-[10px] text-charcoal/50">1 portion · 0.25 ml</p>
         </div>
       </div>
       <div className="mt-6 grid flex-1 place-items-center px-5 *:col-start-1 *:row-start-1">
         <div className="app-out-2 w-full text-center">
-          <p className="text-[11px] text-charcoal/55">Place your fingertip or a sponge under the tip.</p>
+          <p className="text-[11px] text-charcoal/55">Hold your palm under the tip.</p>
           <div className="relative mt-5">
             <span className="block rounded-full bg-charcoal py-3 text-center text-sm font-semibold text-ivory">Confirm & dispense</span>
             <Tap at={24} />

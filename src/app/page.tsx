@@ -7,9 +7,9 @@ import { ButtonLink, Container } from "@/components/ui";
 import { products, starterKit } from "@/data/products";
 
 const STEPS = [
-  { title: "Scan", body: "Guided lighting, photo quality checked." },
+  { title: "Scan", body: "Colour Card at your jaw, photo quality checked." },
   { title: "Adjust", body: "Fine-tune the suggested shade." },
-  { title: "Dispense", body: "A measured portion, mixed for you." },
+  { title: "Dispense", body: "A measured 0.25 ml portion, mixed for you." },
 ];
 
 const TRUST = [

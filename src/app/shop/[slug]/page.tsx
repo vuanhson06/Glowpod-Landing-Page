@@ -73,7 +73,7 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
 
           <div className="mt-8">
             <PrototypeNote>
-              Delivery in 2–5 working days. See <Link href="/shipping" className="underline">shipping</Link> and{" "}
+              Standard delivery in 2–3 days, or same day in Ho Chi Minh City and Hanoi. See <Link href="/shipping" className="underline">shipping</Link> and{" "}
               <Link href="/returns" className="underline">returns</Link>.
             </PrototypeNote>
           </div>

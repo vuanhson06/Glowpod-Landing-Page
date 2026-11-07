@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useHydrated } from "@/lib/cart";
 import { readLastOrder } from "@/lib/order";
-import { CITIES, getShippingMethod } from "@/lib/shipping";
+import { CITIES, effectiveMethod, getShippingMethod } from "@/lib/shipping";
 import { ButtonLink, Price } from "./ui";
 
 export function ThankYouView() {
@@ -24,7 +24,7 @@ export function ThankYouView() {
     );
   }
 
-  const method = getShippingMethod(order.customer.shipping);
+  const method = getShippingMethod(effectiveMethod(order.customer.shipping, order.customer.city));
   const city = CITIES.find((c) => c.id === order.customer.city)?.name ?? "";
 
   return (

@@ -17,6 +17,10 @@ export const faqGroups: FaqGroup[] = [
         a: "The four bases (light, medium, deep and a tone adjuster) combine into a range of shades. The exact range is still being tested across skin tones, and we'll publish it before sales start. The app won't suggest a shade outside the tested range.",
       },
       {
+        q: "What’s in the foundation?",
+        a: "A semi-matte formula with medium, buildable coverage. It contains niacinamide and hyaluronic acid, and it’s paraben-free and fragrance-free. We’ll publish the full ingredient list before sales start.",
+      },
+      {
         q: "Does it do skincare too?",
         a: "Not at launch. The first release is foundation only. Personalised skincare would need its own cartridges and separate testing.",
       },
@@ -27,7 +31,7 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: "Can I trust a phone scan to pick my shade?",
-        a: "The scan gives a suggestion, not a final answer. The app checks image quality and lighting first, and you can always adjust the shade by hand before dispensing. If the light isn't good enough, it asks you to rescan.",
+        a: "The scan gives a suggestion, not a final answer. You hold the GlowPod Colour Card at your jawline so the app can correct for your phone camera’s colour, and it checks image quality and lighting first, and you can always adjust the shade by hand before dispensing. If the light isn't good enough, it asks you to rescan.",
       },
       {
         q: "Does the AI diagnose skin conditions?",
@@ -44,7 +48,7 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: "What does it cost to own?",
-        a: "The Starter Kit is 3,490,000₫ and a Base Refill Set is 590,000₫, which we estimate at about 60 uses (roughly 9,800₫ per use).",
+        a: "The Starter Kit is 1,690,000₫ and a Base Refill Set is 390,000₫, which we estimate lasts about 45 days of daily use (roughly 8,700₫ per day).",
       },
       {
         q: "Do I need a subscription?",
@@ -65,11 +69,11 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Where do you deliver?",
-        a: "We deliver to Ho Chi Minh City and Hanoi first, with other provinces after that. Delivery times and fees are on the Shipping page.",
+        a: "Standard delivery reaches every province in 2–3 days, and same-day delivery is available in Ho Chi Minh City and Hanoi. Fees are on the Shipping page.",
       },
       {
         q: "Can I return my order?",
-        a: "We accept unused devices within 14 days and unopened cartridges within 30 days. Opened cartridges can't be returned for hygiene reasons. See the Returns page for details.",
+        a: "The dispenser has a 12-month 1-to-1 replacement warranty, and you can return it within 30 days if the nozzle keeps blocking despite the guided cleaning. Unopened cartridges can be returned within 30 days. Opened cartridges can't be returned for hygiene reasons, unless you have an allergic reaction within 7 days confirmed by a dermatologist, in which case you get full store credit. See the Returns page for details.",
       },
     ],
   },

@@ -2,10 +2,10 @@ import { describe, expect, it } from "vitest";
 import { cartCount, cartReducer, cartSubtotal, MAX_QTY, sanitizeLines, type CartLine } from "./cartReducer";
 import { isValidPhone, validateCheckout, type CheckoutValues } from "./checkout";
 import { formatVND } from "./format";
-import { FREE_SHIPPING_THRESHOLD, shippingFee } from "./shipping";
+import { FREE_SHIPPING_THRESHOLD, effectiveMethod, isMethodAvailable, shippingFee } from "./shipping";
 
-const KIT = "glowpod-blend-starter-kit"; // 3,490,000
-const REFILL = "foundation-base-refill-set"; // 590,000
+const KIT = "glowpod-blend-starter-kit"; // 1,690,000
+const REFILL = "foundation-base-refill-set"; // 390,000
 
 describe("cartReducer", () => {
   it("adds a new line and merges repeat adds", () => {
@@ -43,7 +43,7 @@ describe("cartReducer", () => {
       { slug: REFILL, qty: 2 },
     ];
     expect(cartCount(lines)).toBe(3);
-    expect(cartSubtotal(lines)).toBe(3_490_000 + 1_180_000);
+    expect(cartSubtotal(lines)).toBe(1_690_000 + 780_000);
   });
 });
 
@@ -68,7 +68,13 @@ describe("shippingFee", () => {
   });
 
   it("is free for an empty order", () => {
-    expect(shippingFee("express", "other", 0)).toBe(0);
+    expect(shippingFee("express", "hcmc", 0)).toBe(0);
+  });
+
+  it("falls back to standard where same-day delivery isn't offered", () => {
+    expect(isMethodAvailable("express", "other")).toBe(false);
+    expect(effectiveMethod("express", "other")).toBe("standard");
+    expect(shippingFee("express", "other", 500_000)).toBe(45_000);
   });
 });
 
