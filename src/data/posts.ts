@@ -97,7 +97,7 @@ export const posts: Post[] = [
       {
         heading: "1. Cost per use",
         paragraphs: [
-          "Divide the refill price by the number of uses it gives. Our current estimate for the GlowPod Base Refill Set is about 8,700₫ per day of use. That figure will be confirmed in testing, and we publish the device price, the refill price and the cost per use side by side.",
+          "Divide the refill price by the number of uses it gives. Our current estimate for the GlowPod Base Refill Set is about 2,300₫ per day of use (about 3,250₫ per application). That figure will be confirmed in testing, and we publish the device price, the refill price and the cost per use side by side.",
         ],
       },
       {

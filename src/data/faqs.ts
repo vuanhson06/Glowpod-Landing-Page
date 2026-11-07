@@ -48,7 +48,7 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: "What does it cost to own?",
-        a: "The Starter Kit is 1,690,000₫ and a Base Refill Set is 390,000₫, which we estimate lasts about 45 days of daily use (roughly 8,700₫ per day).",
+        a: "The Starter Kit is 1,690,000₫ and a Base Refill Set is 390,000₫, which we estimate lasts about 24 weeks at 5 applications a week (roughly 2,300₫ per day).",
       },
       {
         q: "Do I need a subscription?",

@@ -46,7 +46,7 @@ export const products: Product[] = [
       { label: "Key ingredients", value: "Niacinamide, hyaluronic acid" },
       { label: "Free from", value: "Parabens, fragrance" },
     ],
-    costNote: "The included base set is estimated to last about 45 days of daily use before the first refill.",
+    costNote: "The included base set is estimated to last about 24 weeks (5 applications a week) before the first refill.",
     image: {
       src: "/images/products/glowpod-blend-starter-kit.webp",
       alt: "The GlowPod Blend dispenser: a rounded ivory device with four foundation cartridges visible through a front window and a droplet button below.",
@@ -64,14 +64,14 @@ export const products: Product[] = [
     ],
     inBox: ["Light base cartridge", "Medium base cartridge", "Deep base cartridge", "Tone adjuster cartridge"],
     specs: [
-      { label: "Estimated supply", value: "About 45 days of daily use" },
+      { label: "Estimated supply", value: "About 24 weeks at 5 applications a week" },
       { label: "Compatibility", value: "GlowPod Blend only" },
       { label: "Seal", value: "Factory sealed for hygiene" },
       { label: "Finish", value: "Semi-matte, medium buildable coverage" },
       { label: "Key ingredients", value: "Niacinamide, hyaluronic acid" },
       { label: "Free from", value: "Parabens, fragrance" },
     ],
-    costNote: "About 8,700₫ per day (estimate).",
+    costNote: "About 2,300₫ per day, or about 3,250₫ per application (estimate).",
     image: {
       src: "/images/products/foundation-base-refill-set.webp",
       alt: "Four ivory GlowPod cartridges with windows showing light, medium and deep foundation bases and a rose tone adjuster.",
