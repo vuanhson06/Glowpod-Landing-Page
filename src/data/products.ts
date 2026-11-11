@@ -13,6 +13,9 @@ export type Product = {
   specs: { label: string; value: string }[];
   costNote?: string;
   image: { src: string; alt: string };
+  /** Extra views shown after `image` in the product page gallery (5, for 6 photos in total). */
+  gallery: { src: string; alt: string }[];
+  video?: { src: string; poster: string; title: string };
 };
 
 export const products: Product[] = [
@@ -51,6 +54,18 @@ export const products: Product[] = [
       src: "/images/products/glowpod-blend-starter-kit.webp",
       alt: "The GlowPod Blend dispenser: a rounded ivory device with four foundation cartridges visible through a front window and a droplet button below.",
     },
+    gallery: [
+      { src: "/images/products/glowpod-blend-starter-kit/2.webp", alt: "Close-up of the front window, showing the four foundation cartridges inside the dispenser." },
+      { src: "/images/products/glowpod-blend-starter-kit/3.webp", alt: "Close-up of the round dispense button with its rose droplet icon." },
+      { src: "/images/products/glowpod-blend-starter-kit/4.webp", alt: "The four included base cartridges standing in a row: light, medium, deep and the rose tone adjuster." },
+      { src: "/images/products/glowpod-blend-starter-kit/5.webp", alt: "A woman holding a GlowPod light base cartridge beside her face." },
+      { src: "/images/products/glowpod-blend-starter-kit/6.webp", alt: "The dispenser and the four base cartridges side by side." },
+    ],
+    video: {
+      src: "/videos/glowpod-blend-starter-kit.mp4",
+      poster: "/videos/glowpod-blend-starter-kit-poster.webp",
+      title: "GlowPod Blend overview: cartridges, scanning with the Colour Card, and dispensing",
+    },
   },
   {
     slug: "foundation-base-refill-set",
@@ -75,6 +90,18 @@ export const products: Product[] = [
     image: {
       src: "/images/products/foundation-base-refill-set.webp",
       alt: "Four ivory GlowPod cartridges with windows showing light, medium and deep foundation bases and a rose tone adjuster.",
+    },
+    gallery: [
+      { src: "/images/products/foundation-base-refill-set/2.webp", alt: "Close-up of the light and medium base cartridges." },
+      { src: "/images/products/foundation-base-refill-set/3.webp", alt: "Close-up of the deep base cartridge and the rose tone adjuster." },
+      { src: "/images/products/foundation-base-refill-set/4.webp", alt: "Close-up of the cartridge nozzles that connect to the dispenser." },
+      { src: "/images/products/foundation-base-refill-set/5.webp", alt: "A woman holding a GlowPod light base cartridge beside her face." },
+      { src: "/images/products/foundation-base-refill-set/6.webp", alt: "The refill set next to the GlowPod Blend dispenser it fits." },
+    ],
+    video: {
+      src: "/videos/foundation-base-refill-set.mp4",
+      poster: "/videos/foundation-base-refill-set-poster.webp",
+      title: "Foundation Base Refill Set overview: the four cartridges and how they fit the dispenser",
     },
   },
 ];
